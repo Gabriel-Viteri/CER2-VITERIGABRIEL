@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %} {% block main %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Example Product 1</td>
+      <td>$10</td>
+      <td>2</td>
+      <td>$20</td>
+    </tr>
+    <tr>
+      <td>Example Product 2</td>
+      <td>$15</td>
+      <td>1</td>
+      <td>$15</td>
+    </tr>
+    <!-- Add more products as needed -->
+  </tbody>
+</table>
+{% endblock %}

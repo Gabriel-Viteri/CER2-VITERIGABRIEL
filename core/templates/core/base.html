@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'home' %}"
+          ><img
+            class="Logo"
+            src="{% static 'core/img/TiendaVerdeLogo.png' %}"
+            alt="TiendaVerdeLogo"
+        /></a>
+        <div class="container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'solicitud' %}">Recicla! </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Iniciar Sesión
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="{% url 'login' %}"
+                      >Iniciar Sesión</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'register' %}"
+                      >Registrarse</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'logout' %}"
+                      >Cerrar Sesión</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <form class="d-flex" action="{% url 'carrito' %}" method="get">
+                  <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill"
+                      >0</span
+                    >
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {% block main %} {% endblock %}
+    <br /><br />
+    <p class="mt-5 mb-3 text-muted text-left">
+      <a href="{% url 'admin:index' %}">Admin</a>
+    </p>
+    <script src="{% static 'core/js/bootstrap.bundle.js' %}"></script>
+  </body>
+</html>

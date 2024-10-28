@@ -1,0 +1,87 @@
+{% extends 'core/base.html' %}
+
+{% block main %}
+    </div>
+    <div class="container px-5"></div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="text-center">
+                <h1 class="h1">Formulario de Reciclaje</h1>
+                <p>Complete el siguiente formulario para reciclar sus residuos.</p>
+            </div>
+
+            <form id="Form">
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="tipoResiduo" name="tipoResiduo" required
+                            onchange="mostrarSubcategorias()">
+                        <option value="">Seleccione un tipo de residuo</option>
+                        <option value="Plástico">Plástico</option>
+                        <option value="Papel">Papel</option>
+                        <option value="Vidrio">Vidrio</option>
+                        <option value="Metales">Metales</option>
+                        <option value="Electrónicos">Electrónicos</option>
+                    </select>
+                    <label for="tipoResiduo">Tipo de Residuo</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="subcategoria" name="subcategoria" required
+                            style="display:none;">
+                        <option value="">Seleccione una subcategoría</option>
+                    </select>
+                    <label for="subcategoria" style="display:none;">Subcategoría</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="nombre" type="text" placeholder="Nombre" required />
+                    <label for="nombre">Nombre</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="email" type="email" placeholder="Correo Electrónico"
+                           required />
+                    <label for="email">Correo Electrónico</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="direccion" type="text" placeholder="Dirección" required />
+                    <label for="direccion">Dirección</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="comentarios" placeholder="Comentarios Adicionales"
+                              style="height: 10rem;"></textarea>
+                    <label for="comentarios">Comentarios Adicionales</label>
+                </div>
+
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Enviar</button>
+                </div>
+       
+    <script>
+        function mostrarSubcategorias() {
+            const tipoResiduo = document.getElementById("tipoResiduo").value;
+            const subcategoriaSelect = document.getElementById("subcategoria");
+            subcategoriaSelect.innerHTML = "";
+            const subcategorias = {
+                "Plástico": ["Botellas", "Envases", "Bolsas"],
+                "Papel": ["Periódicos", "Cartón", "Papel de oficina"],
+                "Vidrio": ["Botellas", "Frascos", "Cristalería"],
+                "Metales": ["Latas", "Cables", "Electrodomésticos pequeños"],
+                "Electrónicos": ["Teléfonos móviles", "Baterías", "Componentes de computadoras"]
+            }
+
+            if (tipoResiduo && subcategorias[tipoResiduo]) {
+                subcategorias[tipoResiduo].forEach(subcategoria => {
+                    const option = new Option(subcategoria, subcategoria);
+                    subcategoriaSelect.add(option);
+                });
+                subcategoriaSelect.style.display = "block";
+            } else {
+                subcategoriaSelect.style.display = "none";
+            }
+        }
+    </script>
+
+
+{% endblock main %}

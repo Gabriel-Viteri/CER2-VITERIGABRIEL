@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %} {% block main %}
+<h1 class="display-4">Productos</h1>
+<ul class="list-group">
+  {% for producto in productos %}
+  <li class="list-group-item">
+    {{ producto.nombre }} - ${{ producto.precio }}
+    <a
+      class="btn btn-primary float-right"
+      href="{% url 'cart:anadir_carrito' producto.id_producto %}"
+      >Añadir al carrito</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

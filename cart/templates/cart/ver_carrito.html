@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tu Carrito</title>
+  </head>
+  <body>
+    <h1>Tu Carrito</h1>
+    <ul>
+      {% for item in cart_items %}
+      <li>
+        {{ item.product.name }} - ${{ item.product.price }} x {{ item.quantity
+        }}
+      </li>
+      {% empty %}
+      <li>Tu carrito esta vacio.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'cart:lista_productos' %}">Continua comprando</a>
+  </body>
+</html>

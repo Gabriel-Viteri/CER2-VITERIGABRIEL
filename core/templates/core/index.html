@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+
+
+
+  {% block main %}
+
+  <div class="container-fluid mb-5">
+    <div class="row">
+      <div class="AboutUs text-center col-8 ">
+        <h1>Tienda Verde es una empresa local comprometida con la comercialización de productos que respetan y
+          protegen el medio ambiente.</h1>
+        <p>Nos especializamos en ofrecer una variedad de artículos sostenibles que promueven un estilo de vida
+          ecológico y responsable.</p>
+        <p>Nuestra misión es promover un estilo de vida más verde y consciente, ofreciendo a nuestros clientes una
+          amplia gama de productos que respetan el medio ambiente.</p>
+      </div>
+      <h1 class="text-center col-8 mx-auto mt-5"> Productos Populares</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static 'core/img/LibroEco.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Libro de Ecología</h5>
+              <p class="card-text">Libro lleno de consejos prácticos para vivir de manera sostenible y cuidar
+                de tu bienestar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static 'core/img/cremaHidratante1.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Crema Hidratante</h5>
+              <p class="card-text">Cremas para la piel ecológicas, elaboradas con ingredientes naturales que nutren y
+                protegen tu piel.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static 'core/img/kitEco.png' %}" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Kit de Semillas y Jardinería</h5>
+              <p class="card-text">Kit de semillas ecológicas para cultivar tu propio jardín.</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  {% endblock %}
